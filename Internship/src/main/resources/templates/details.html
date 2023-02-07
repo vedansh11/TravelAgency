@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Register</title>
+ <style>
+        h1,h2{
+    position: relative;
+    left: 30%;
+}
+.container {
+    margin-top: 55px;
+}
+    </style>
+</head>
+<body>
+	<div class="container">
+	
+	       <h1>Report</h1>
+	       <br></br>
+	       
+	       <h2>Fuel Required is</h2>
+	       <h2 th:text="${user.fuelRequired}"></h2>
+	       
+	       <h2>Cost of Journey To Agency is</h1>
+	       <h2 th:text="${user.costOfJourneyToAgency}"></h2>
+	       
+	        <h2>Cost of Journey To Customer is</h1>
+	       <h2 th:text="${user.costOfJourneyToCustomer}"></h2>
+	       
+	       
+	        <h2>Cost of Journey To Customer after discount is</h1>
+	       <h2 th:text="${user.discountedPrice}"></h2>
+	   </form>    
+	   
+			
+
+
+</body>
+</html>
