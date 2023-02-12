@@ -12,27 +12,75 @@
 .container {
     margin-top: 55px;
 }
+tr{
+position: relative;
+    left: 30%;
+}
+
+td{
+ position: relative;
+    left: 30%;
+    padding: 10px;
+    
+}
+
     </style>
 </head>
 <body>
-	<div class="container">
+	<div class="container mt-5">
 	
 	       <h1>Report</h1>
 	       <br></br>
 	       
-	       <h2>Fuel Required is</h2>
-	       <h2 th:text="${user.fuelRequired}"></h2>
-	       
-	       <h2>Cost of Journey To Agency is</h1>
-	       <h2 th:text="${user.costOfJourneyToAgency}"></h2>
-	       
-	        <h2>Cost of Journey To Customer is</h1>
-	       <h2 th:text="${user.costOfJourneyToCustomer}"></h2>
-	       
-	       
-	        <h2>Cost of Journey To Customer after discount is</h1>
-	       <h2 th:text="${user.discountedPrice}"></h2>
-	   </form>    
+            <table border="0" class="center">
+            
+            
+
+                <tr>
+                    <td>Fuel Required (In Liters)</td>
+                    <td>:</td>
+                    <td th:utext="${user.fuelRequired}">  </td>       
+                    <td>L</td>   
+                </tr>
+              
+
+                <tr>
+                    <td>Cost of Journey To Agency </td>
+                    <td>:</td>
+                    <td th:utext="${user.costOfJourneyToAgency}">...</td>        
+                    <td>Rs</td>     
+                </tr>
+
+                <tr>
+                    <td>Cost of Journey To Customer </td>
+                    <td>:</td>
+                    <td th:utext="${user.costOfJourneyToCustomer}">...</td>    
+                    <td>Rs</td>          
+                </tr>
+
+                <tr>
+                    <td>Cost of Journey To Customer after discount </td>
+                    <td>:</td>
+                    <td th:utext="${user.discountedPrice}">...</td>
+                    <td>Rs</td>
+                </tr>
+
+                <tr>
+                    <td>Profit Percentage </td>
+                    <td>:</td>
+                    <td th:utext="${user.profitPercentage}"></td>
+                    <td>%</td>
+                </tr>
+
+                <tr>
+                    <td>Required Profit can be achieved by Travelling kilometers</td>
+                    <td>:</td>
+                    <td th:utext="${user.requiredKilometers}">...</td>
+                    <td>Km</td>
+                </tr>
+
+
+            </table>
 	   
 			
 

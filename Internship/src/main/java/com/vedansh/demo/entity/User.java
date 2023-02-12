@@ -1,5 +1,7 @@
 package com.vedansh.demo.entity;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -26,6 +28,42 @@ public class User {
 	private Float fuelRequired;
 	private Float costOfJourneyToAgency;
 	private Float costOfJourneyToCustomer;
+	private Float profitPercentage;
+	private Float requiredProfit;
+	private Float requiredKilometers;
+	
+	public Float getProfitPercentage() {
+		return profitPercentage;
+	}
+	public void setProfitPercentage(Float profitPercentage) {
+		this.profitPercentage = profitPercentage;
+	}
+	public Float getRequiredProfit() {
+		return requiredProfit;
+	}
+	public void setRequiredProfit(Float requiredProfit) {
+		this.requiredProfit = requiredProfit;
+	}
+	public Float getRequiredKilometers() {
+		return requiredKilometers;
+	}
+	public void setRequiredKilometers(Float requiredKilometers) {
+		this.requiredKilometers = requiredKilometers;
+	}
+	public String[] getCars() {
+		return cars;
+	}
+	public void setCars(String[] cars) {
+		this.cars = cars;
+	}
+	private String[] cars= {"swift","nisaan","truck"};
+	
+	public String getCarName() {
+		return carName;
+	}
+	public void setCarName(String carName) {
+		this.carName = carName;
+	}
 	private Float discountedPrice;
 	
 	public Float getFuelRequired() {
@@ -52,12 +90,7 @@ public class User {
 	public void setDiscountedPrice(Float discountedPrice) {
 		this.discountedPrice = discountedPrice;
 	}
-	public String getCarName() {
-		return carName;
-	}
-	public void setCarName(String carName) {
-		this.carName = carName;
-	}
+
 	public String getDriverName() {
 		return driverName;
 	}

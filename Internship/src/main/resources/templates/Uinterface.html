@@ -16,8 +16,8 @@
 		<form action="#" th:action="@{/save}" th:object="${user}" method="POST">
 			<div class="mb-3">
 				<label for="exampleFormControlInput1" class="form-label">CarName</label>
-				<input  th:field="*{carName}" class="form-control"
-					placeholder="Enter Car Name">
+					<input  th:field="*{carName}" class="form-control"
+					 placeholder="Enter CarName">
 			</div>
 
 			<div class="mb-3">
@@ -44,11 +44,16 @@
 					 placeholder="Enter Total Kilometers">
 			</div>
 			
+				<div class="mb-3">
+				<label for="exampleFormControlInput1" class="form-label">Expected Profit Amount</label> 
+				<input  type="number" th:field="*{requiredProfit}" class="form-control"
+					 placeholder="Enter the Expected amount of Profit">
+			</div>
 
 			<div class="container text-center">
 			<button type="submit" class="btn btn-success">Submit</button>
 			</div>
-			
+		
 
 		</form>
 	</div>

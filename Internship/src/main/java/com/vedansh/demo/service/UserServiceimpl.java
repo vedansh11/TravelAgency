@@ -40,33 +40,45 @@ public class UserServiceimpl implements UserService{
 		
 		
 		float totalkilo=Float.parseFloat(user.getTotalkilometers());
+		
+		if(((totalkilo/average)-intialPetrolInCar)<0) {
+			 user.setFuelRequired((float) 0);
+		}
+		else {
 	     user.setFuelRequired((totalkilo/average)-intialPetrolInCar);
-	
+		}
 		
 		user.setCostOfJourneyToAgency(petrolPerLitre*intialPetrolInCar);
 		
+		//Proft percentage = Profit/CP * 100
+		//Profit percentage = ((SP-CP)/CP)*100
 		
 		
 		if(user.getCarName().equalsIgnoreCase("innova")) 
 		{
 			user.setCostOfJourneyToCustomer((chargePerKmOfInnova*totalkilo)+((user.getFuelRequired())*petrolPerLitre));
 			user.setDiscountedPrice(((chargePerKmOfInnova-2)*totalkilo)+((user.getFuelRequired())*petrolPerLitre));
+			user.setProfitPercentage((user.getCostOfJourneyToCustomer()-user.getCostOfJourneyToAgency())/user.getCostOfJourneyToAgency()*100);
+			user.setRequiredKilometers((user.getRequiredProfit()+user.getCostOfJourneyToAgency())/chargePerKmOfInnova);
+			
 		}
 		else if(user.getCarName().equalsIgnoreCase("swift")) 
 		{
 			user.setCostOfJourneyToCustomer((chargePerKmOfSwift*totalkilo)+((user.getFuelRequired())*petrolPerLitre));
 			user.setDiscountedPrice(((chargePerKmOfSwift-2)*totalkilo)+((user.getFuelRequired())*petrolPerLitre));
+			user.setProfitPercentage((user.getCostOfJourneyToCustomer()-user.getCostOfJourneyToAgency())/user.getCostOfJourneyToAgency()*100);
+			user.setRequiredKilometers((user.getRequiredProfit()+user.getCostOfJourneyToAgency())/chargePerKmOfSwift);
 		}
 		else if(user.getCarName().equalsIgnoreCase("etios"))
 		{
 			user.setCostOfJourneyToCustomer((chargePerKmOfEtios*totalkilo)+((user.getFuelRequired())*petrolPerLitre));
 			user.setDiscountedPrice(((chargePerKmOfEtios-2)*totalkilo)+((user.getFuelRequired())*petrolPerLitre));
+			user.setProfitPercentage((user.getCostOfJourneyToCustomer()-user.getCostOfJourneyToAgency())/user.getCostOfJourneyToAgency()*100);
+			user.setRequiredKilometers((user.getRequiredProfit()+user.getCostOfJourneyToAgency())/chargePerKmOfEtios);
 		}
 			
 		
-		user.setFuelRequired(user.getFuelRequired());
-		
-		
+		//user.setFuelRequired(user.getFuelRequired());
 		
 		
 		return user;
@@ -75,6 +87,7 @@ public class UserServiceimpl implements UserService{
 		
 		
 	}
+
 
 
 
